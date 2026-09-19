@@ -1,34 +1,27 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const grotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-sans"
-});
-
 export const metadata: Metadata = {
-  title: "Quoc (Leo) Ho | Data & ML Engineer",
+  metadataBase: new URL("https://quocdho.vercel.app"),
+  title: "Quoc (Leo) Ho | Vision Systems & Computer Science",
   description:
-    "Portfolio of Quoc (Leo) Ho — data engineer and machine learning engineer building reliable data and ML systems.",
+    "Quoc (Leo) Ho — vision systems specialist and computer vision researcher in Holland, Michigan. Connecting hardware, software, and hands-on problem-solving.",
   openGraph: {
-    title: "Quoc (Leo) Ho | Data & ML Engineer",
+    title: "Quoc (Leo) Ho | Vision Systems & Computer Science",
     description:
-      "Data engineer and machine learning engineer crafting scalable data pipelines and production-grade ML.",
-    url: "https://localhost",
-    siteName: "Quoc (Leo) Ho Portfolio"
-  }
+      "Connecting hardware, software, and curiosity to make real-world systems work better.",
+    url: "https://quocdho.vercel.app",
+    siteName: "Quoc (Leo) Ho Portfolio",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={grotesk.variable}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
