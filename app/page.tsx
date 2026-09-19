@@ -1,3 +1,5 @@
+import MotionEffects from "./motion-effects";
+
 const experience = [
   {
     role: "Vision Systems Specialist I",
@@ -167,6 +169,7 @@ function VisionGraphic() {
 export default function Home() {
   return (
     <>
+      <MotionEffects />
       <a className="skip-link" href="#main">
         Skip to content
       </a>

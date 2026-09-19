@@ -1082,13 +1082,148 @@ footer > a:last-child span {
     margin-left: 0;
   }
 }
+/* Motion stays subtle and uses transforms rather than layout changes. */
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes lens-focus {
+  0% {
+    filter: blur(3px);
+    opacity: 0.65;
+    scale: 0.94;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes greeting-turn {
+  from {
+    transform: rotate(-45deg) scale(0.8);
+  }
+  to {
+    transform: rotate(12deg) scale(1);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy > * {
+    animation: arrive 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .hero-copy h1 {
+    animation-delay: 0.08s;
+  }
+  .hero-description {
+    animation-delay: 0.16s;
+  }
+  .hero-actions {
+    animation-delay: 0.24s;
+  }
+  .hero-copy .location {
+    animation-delay: 0.32s;
+  }
+  .vision-art {
+    animation: arrive 1s 0.15s both;
+  }
+  .lens {
+    animation: lens-focus 1.8s 0.2s both;
+  }
+  h1 .hello-dot {
+    animation: greeting-turn 1.4s 0.25s both;
+  }
+  .lens,
+  .viewfinder {
+    translate: var(--lens-x, 0px) var(--lens-y, 0px);
+    transition: translate 0.35s ease-out;
+  }
+  .reveal-item {
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .reveal-pending {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  .skill-card:nth-child(2) {
+    transition-delay: 0.07s;
+  }
+  .skill-card:nth-child(3) {
+    transition-delay: 0.14s;
+  }
+}
+.skill-card,
+.publication-card {
+  transition:
+    opacity 0.7s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+.site-header nav a {
+  position: relative;
+  padding-block: 5px;
+}
+.site-header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.text-link > span,
+.social-links a > span,
+.nav-contact > span,
+.button > span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .skill-card:hover,
+  .publication-card:hover {
+    transform: translateY(-5px);
+    border-color: #9fc3dc;
+    box-shadow: 0 16px 36px #315c7710;
+  }
+  .site-header nav a:hover::after {
+    transform: scaleX(1);
+  }
+  .text-link:hover > span,
+  .social-links a:hover > span,
+  .nav-contact:hover > span {
+    transform: translate(3px, -3px);
+  }
+  .button:hover > span {
+    transform: translateY(3px);
+  }
+}
+.site-header nav a:focus-visible::after {
+  transform: scaleX(1);
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .reveal-pending {
+    opacity: 1;
+    transform: none;
   }
   *,
   *::before,
   *::after {
     transition: none !important;
+    animation: none !important;
   }
 }
