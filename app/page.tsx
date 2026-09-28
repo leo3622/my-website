@@ -3,6 +3,9 @@ import MotionEffects from "./motion-effects";
 import HeroArt from "./hero-art";
 import FormStudy from "./form-study";
 
+const emailComposeUrl =
+  "https://mail.google.com/mail/?view=cm&fs=1&to=quocleoho362%40gmail.com";
+
 const experience = [
   {
     role: "Vision Systems Specialist I",
@@ -188,7 +191,7 @@ export default function Home() {
         </div>
 
         <section id="contact" className="contact section" aria-labelledby="contact-title" data-reveal>
-          <div className="container"><p className="section-label">Good things start with a conversation.</p><a className="contact-title-link" href="mailto:quocleoho362@gmail.com"><h2 id="contact-title">Have an idea?<br /><span>Let’s make it real.</span></h2><span className="contact-arrow" aria-hidden="true">↗</span></a><div className="contact-bottom"><a className="email-link" href="mailto:quocleoho362@gmail.com">quocleoho362@gmail.com</a><div className="social-links"><a href="https://www.linkedin.com/in/quocleoho/" target="_blank" rel="noopener noreferrer">LinkedIn <Arrow /></a><a href="https://github.com/leo3622" target="_blank" rel="noopener noreferrer">GitHub <Arrow /></a><a href="/Quoc_Ho_Resume.docx" download>Résumé (DOCX) <Arrow /></a><a href="tel:+16162517124">616.251.7124 <Arrow /></a></div></div></div>
+          <div className="container"><p className="section-label">Good things start with a conversation.</p><a className="contact-title-link" href={emailComposeUrl} target="_blank" rel="noopener noreferrer" aria-label="Email Leo"><h2 id="contact-title">Have an idea?<br /><span>Let’s make it real.</span></h2><span className="contact-arrow" aria-hidden="true">↗</span></a><div className="contact-bottom"><a className="email-link" href={emailComposeUrl} target="_blank" rel="noopener noreferrer">quocleoho362@gmail.com</a><div className="social-links"><a href="https://www.linkedin.com/in/quocleoho/" target="_blank" rel="noopener noreferrer">LinkedIn <Arrow /></a><a href="https://github.com/leo3622" target="_blank" rel="noopener noreferrer">GitHub <Arrow /></a><a href="/Quoc_Ho_Resume.docx" download>Résumé (DOCX) <Arrow /></a><a href="tel:+16162517124">616.251.7124 <Arrow /></a></div></div></div>
         </section>
       </main>
       <footer className="container"><a className="wordmark" href="#" aria-label="Leo Ho, home">leo<span>.</span></a><p>© {new Date().getFullYear()} Quoc (Leo) Ho · Holland, Michigan</p><a href="#">Back to top <span aria-hidden="true">↑</span></a></footer>
